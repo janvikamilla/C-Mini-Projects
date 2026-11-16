@@ -1,0 +1,54 @@
+#include <stdio.h>
+
+int main()
+{
+    char category[30];
+    float amount, total = 0;
+    int choice, count = 0;
+
+    do
+    {
+        printf("\n===== EXPENSE TRACKER =====\n");
+        printf("1. Add Expense\n");
+        printf("2. View Total Spending\n");
+        printf("3. Exit\n");
+        printf("Enter choice: ");
+        scanf("%d", &choice);
+
+        switch(choice)
+        {
+            case 1:
+                printf("Enter category: ");
+                scanf(" %[^\n]", category);
+
+                printf("Enter amount: ");
+                scanf("%f", &amount);
+
+                if(amount > 0)
+                {
+                    total += amount;
+                    count++;
+                    printf("Expense Added Successfully!\n");
+                }
+                else
+                    printf("Invalid Amount!\n");
+
+                break;
+
+            case 2:
+                printf("Total Expenses: %d\n", count);
+                printf("Total Spending: Rs. %.2f\n", total);
+                break;
+
+            case 3:
+                printf("Thank You!\n");
+                break;
+
+            default:
+                printf("Invalid Choice!\n");
+        }
+
+    } while(choice != 3);
+
+    return 0;
+}
